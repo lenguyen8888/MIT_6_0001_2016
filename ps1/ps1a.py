@@ -30,18 +30,34 @@
 # 3. The cost of your dream home (total_cost)
 
 #P# prompt user for annual salary, portion saved, and total_cost
+anual_salary = float(input("Enter your annual salary: "))
+portion_saved = float(input("Enter the percent of your salary to save, as a decimal: "))
+total_cost = float(input("Enter the cost of your dream home: "))
+
 
 #P# initialize variables
+portion_down_payment = 0.25
+current_savings = 0
+r = 0.04
+monthly_salary = anual_salary / 12
+monthly_savings = monthly_salary * portion_saved
+months = 0
 
-#P# calculate down payment
-
-#P# calculate monthly salary
-
-#P# calculate monthly savings
+#P# Calulate basic constant values
+down_payment = total_cost * portion_down_payment
 
 #P# loop until current savings is greater than or equal to down payment
+while current_savings < down_payment:
+    #P# calculate monthly savings due to investment return
+    monthly_return = current_savings * r / 12
+    #P# add monthly savings to current savings
+    current_savings += monthly_return + monthly_savings
+    #P# increment number of months
+    months += 1
 
 #P# print number of months
+print("Number of months:", months)
+
 
 
 # Test Case 1
